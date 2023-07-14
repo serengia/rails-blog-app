@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   # Validations
   validates :name, presence: true, length: { minimum: 3, maximum: 50,
-    too_long: '%<count>s characters is the maximum allowed' }
+                                             too_long: '%<count>s characters is the maximum allowed' }
   validates :posts_counter, numericality: { only_integer: true },
-      comparison: { greater_than_or_equal_to: 0 }
+                            comparison: { greater_than_or_equal_to: 0 }
 
   def three_most_recent_posts
     posts.order(created_at: :desc).limit(3)

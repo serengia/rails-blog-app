@@ -14,8 +14,17 @@ RSpec.describe Comment, type: :model do
   )
 
   subject(:comment) do
-    Comment.new(text: 'Test comments',
+    Comment.new(text: 'A',
                 author: user,
                 post:)
+  end
+
+  it 'validates the length of text' do
+    expect(subject).not_to be_valid
+    expect(subject.errors[:text]).to include('is too short (minimum is 3 characters)')
+
+    subject.text = 'A' * 251
+    expect(subject).not_to be_valid
+    expect(subject.errors[:text]).to include('is too long (maximum is 250 characters)')
   end
 end

@@ -7,8 +7,8 @@ class Comment < ApplicationRecord
 
   # Validation
   validates :text, presence: true, length: { minimum: 3, maximum: 250,
-    too_long: '%<count>s characters is the maximum allowed',
-    too_short: '%<count>s characters is the minimum allowed' }
+                                             too_long: '%<count>s characters is the maximum allowed',
+                                             too_short: '%<count>s characters is the minimum allowed' }
 
   private
 

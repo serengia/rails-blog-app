@@ -12,7 +12,7 @@ RSpec.describe Like, type: :model do
     comments_counter: 0,
     likes_counter: 0
   )
-  
+
   describe 'associations' do
     it 'belongs to an author (User)' do
       association = described_class.reflect_on_association(:author)
@@ -29,16 +29,20 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'callbacks' do
-    let(:user) { User.create(name: 'Anything',
-        photo: 'http://licalhost:3000/anything.jpg',
-        bio: 'Anything test',
-        posts_counter: 0) }
-    let(:post) { Post.create(  title: 'Anything',
-        text: 'Anything test',
-        author: user,
-        comments_counter: 0,
-        likes_counter: 0) }
-    let(:like) { Like.new(author: user, post: post) }
+    let(:user) do
+      User.create(name: 'Anything',
+                  photo: 'http://licalhost:3000/anything.jpg',
+                  bio: 'Anything test',
+                  posts_counter: 0)
+    end
+    let(:post) do
+      Post.create(title: 'Anything',
+                  text: 'Anything test',
+                  author: user,
+                  comments_counter: 0,
+                  likes_counter: 0)
+    end
+    let(:like) { Like.new(author: user, post:) }
 
     describe 'after_save' do
       it 'updates the post like counter' do
@@ -55,6 +59,3 @@ RSpec.describe Like, type: :model do
     end
   end
 end
-
-
-
