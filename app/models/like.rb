@@ -13,5 +13,6 @@ class Like < ApplicationRecord
 
   def decrement_post_like_counter
     post.decrement!(:likes_counter)
+    post.reload
   end
 end

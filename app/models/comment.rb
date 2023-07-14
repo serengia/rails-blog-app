@@ -5,6 +5,11 @@ class Comment < ApplicationRecord
   after_save :update_post_comment_counter
   after_destroy :decrement_post_comment_counter
 
+  # Validation
+  validates :text, presence: true, length: { minimum: 3, maximum: 250,
+                                             too_long: '%<count>s characters is the maximum allowed',
+                                             too_short: '%<count>s characters is the minimum allowed' }
+
   private
 
   def update_post_comment_counter

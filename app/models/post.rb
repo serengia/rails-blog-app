@@ -5,6 +5,13 @@ class Post < ApplicationRecord
 
   after_save :update_user_post_counter
 
+  validates :title, presence: true, length: { minimum: 5, maximum: 250,
+                                              too_long: '%<count>s characters is the maximum allowed' }
+  validates :comments_counter, numericality: { only_integer: true },
+                               comparison: { greater_than_or_equal_to: 0 }
+  validates :likes_counter, numericality: { only_integer: true },
+                            comparison: { greater_than_or_equal_to: 0 }
+
   def update_user_post_counter
     author.increment!(:posts_counter)
   end

@@ -6,7 +6,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -59,14 +58,6 @@ Some of the future features I will add include:
 - API documentation
 
 <!-- LIVE DEMO -->
-
-## 🚀 Live project <a name="live-demo"></a>
-
-View the live project
-
--Coming soon... [Live Project Link]()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
