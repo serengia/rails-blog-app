@@ -17,7 +17,7 @@ RSpec.describe Like, type: :model do
     it 'belongs to an author (User)' do
       association = described_class.reflect_on_association(:author)
       expect(association.macro).to eq(:belongs_to)
-      expect(association.foreign_key).to eq(:author_id)
+      expect(association.foreign_key).to eq(author_id)
       expect(association.class_name).to eq('User')
     end
 
