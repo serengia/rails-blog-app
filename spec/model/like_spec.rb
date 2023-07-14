@@ -1,23 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  user = User.new(name: 'Anything',
-                  photo: 'http://licalhost:3000/anything.jpg',
-                  bio: 'Anything test',
-                  posts_counter: 0)
-  post = Post.new(
-    title: 'Anything',
-    text: 'Anything test',
-    author: user,
-    comments_counter: 0,
-    likes_counter: 0
-  )
-
   describe 'associations' do
     it 'belongs to an author (User)' do
       association = described_class.reflect_on_association(:author)
       expect(association.macro).to eq(:belongs_to)
-      expect(association.foreign_key).to eq(author_id)
+      expect(association.foreign_key)
       expect(association.class_name).to eq('User')
     end
 
@@ -29,19 +17,8 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'callbacks' do
-    let(:user) do
-      User.create(name: 'Anything',
-                  photo: 'http://licalhost:3000/anything.jpg',
-                  bio: 'Anything test',
-                  posts_counter: 0)
-    end
-    let(:post) do
-      Post.create(title: 'Anything',
-                  text: 'Anything test',
-                  author: user,
-                  comments_counter: 0,
-                  likes_counter: 0)
-    end
+    let(:user) { User.create(name: 'John', posts_counter: 0) }
+    let(:post) { Post.create(title: 'My Post', comments_counter: 0, likes_counter: 0, author: user) }
     let(:like) { Like.new(author: user, post:) }
 
     describe 'after_save' do

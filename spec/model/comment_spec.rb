@@ -21,10 +21,10 @@ RSpec.describe Comment, type: :model do
 
   it 'validates the length of text' do
     expect(subject).not_to be_valid
-    expect(subject.errors[:text]).to include('is too short (minimum is 3 characters)')
+    expect(subject.errors[:text]).to include('3 characters is the minimum allowed')
 
     subject.text = 'A' * 251
     expect(subject).not_to be_valid
-    expect(subject.errors[:text]).to include('is too long (maximum is 250 characters)')
+    expect(subject.errors[:text]).to include('250 characters is the maximum allowed')
   end
 end
