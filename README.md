@@ -63,39 +63,46 @@ Some of the future features I will add include:
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To run the project in your local environment, get a local copy up and running, follow these steps.
+To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-In order to run this project you need node js installed in your system.
+> You need the following tools be installed in your computer:
 
-- Ruby
-- Node Js
-
-```sh
- gem install rails
-```
+> - [Rails](https://guides.rubyonrails.org/)
+> - [Git](https://www.linode.com/docs/guides/how-to-install-git-on-linux-mac-and-windows/)
+> - [Ruby](https://github.com/microverseinc/curriculum-ruby/blob/main/simple-ruby/articles/ruby_installation_instructions.md)
+> - IDE
+> - Etc
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  cd rails-blog-app
+
+  git clone https://github.com/serengia/rails-blog-app.git
+
 ```
---->
 
 ### Install
 
 Install this project with:
 
 ```sh
-  cd my-project
+  cd rails-blog-app
+
   bundle install
+```
+
+### 💾 Database
+
+Create the databases and run migrations with:
+
+```sh
+rails db:create
+rails db:migrate
 ```
 
 ### Usage
@@ -103,36 +110,16 @@ Install this project with:
 To run the project, execute the following command:
 
 ```sh
-  rails server
+  rails server or rails s
 ```
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
-
 ```sh
-  bin/rails test test/models/article_test.rb
+  rspec spec/
 ```
---->
-
-<!-- ```sh
-  npm test
-``` -->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
