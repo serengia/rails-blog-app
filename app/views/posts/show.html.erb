@@ -2,7 +2,7 @@
   <div class="row">
     <%= render partial: "shared/post_body"%>
    <div class="comments-wrapper">
-      <%= render partial: "shared/comments"%>
+      <%= render partial: "shared/comments", locals: {comments: @comments}%>
       </div>
   </div>
 </div>
