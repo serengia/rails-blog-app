@@ -1,1 +1,22 @@
-<h1>User details page</h1>
+<div class="user-details-page">
+<div class="row">
+  <div class="user-header">
+     <%= render partial: "shared/user_card", locals: {u: @user}%>
+  </div>
+
+  <div class="user-bio">
+     <h2>User bio</h2>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
+  </div>
+   
+   <%@posts.each do |p|%>
+      <%= render partial: "shared/post_card", locals: {p:p}%>
+   <%end%>
+
+   <div class="button-wrapper">
+   <%= link_to "See all posts", "/users/#{@user.id}/posts" %>
+   </div>
+   
+</div>
+</div>

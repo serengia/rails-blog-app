@@ -1,1 +1,8 @@
-<h1>Users list page</h1>
+<main class="home">
+<div class="users-list-wrapper row">
+<h1 class="heading">Users list page</h1>
+<% @users.each do |u|%>
+ <%= render partial: "shared/user_card", locals: {u:u}%>
+<% end %>
+</div>
+</main>
