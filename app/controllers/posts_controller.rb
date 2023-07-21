@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-   @comments = @post.five_most_recent_comments
+    @comments = @post.five_most_recent_comments
   end
 
   private
