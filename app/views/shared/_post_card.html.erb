@@ -1,0 +1,8 @@
+ <div class="post">
+     <h2 class="title"><%= link_to p.title, user_post_path(p.author, p) %></h2>
+     <p class="preview"><%= p.text%></p>
+     <p class="comments-and-likes">
+     <span>Comments: <%= p.comments_counter%> </span>
+     <span>Likes: <%= p.likes_counter%> </span>
+     </p>
+   </div>

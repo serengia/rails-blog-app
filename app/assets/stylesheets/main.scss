@@ -1,0 +1,202 @@
+/* stylelint-disable */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+$color-text: #333;
+$color-secondary: #0b66c2;
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  color: $color-text;
+  font-weight: 500;
+  background-color: #eee;
+  position: relative;
+}
+
+h1,
+h2 {
+  margin-bottom: 0.6rem;
+}
+
+p {
+  margin-bottom: 0.8rem;
+}
+
+.row {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  .header-container {
+    height: 6rem;
+    .nav-links {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+      justify-content: center;
+      .nav-link {
+        a {
+          &:link,
+          &:visited {
+            text-decoration: none;
+            color: $color-text;
+            font-weight: 600;
+          }
+          &:hover,
+          &:active {
+            color: $color-secondary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.home {
+  padding: 3rem 0;
+}
+
+.user-card {
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 2rem;
+  .image-wrapper {
+    flex: 1;
+    .img {
+      width: 100%;
+      display: block;
+    }
+  }
+  .content {
+    flex: 2.5;
+    padding: 2rem;
+  }
+}
+
+.user-details-page {
+  padding: 3rem 0;
+}
+
+.user-bio,
+.post {
+  padding: 2rem;
+  margin-bottom: 3rem;
+  background-color: #fff;
+}
+
+.post {
+  .comments-and-likes {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+    font-weight: 700;
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 2rem 0;
+  a {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: $color-secondary;
+    border-radius: 4px;
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    &:hover,
+    &:active {
+      background-color: #044585;
+    }
+  }
+}
+
+.footer {
+  background-color: #20232a;
+  .footer-container {
+    min-height: 9rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    p {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 1.7rem;
+      @media (max-width: 500px) {
+        font-size: 1.5rem;
+      }
+
+      a {
+        &:link,
+        &:visited {
+          color: #1a73e8;
+          transition: all 0.2s;
+          text-decoration: none;
+          font-weight: 600;
+          border-bottom: solid currentColor 2px;
+        }
+
+        &:hover,
+        &:active {
+          color: #0e52ab;
+        }
+      }
+    }
+  }
+}
+
+.posts-page {
+  padding: 3rem 0;
+
+  .comments-wrapper {
+    margin-bottom: 3rem;
+    margin-top: -4rem;
+  }
+}
+
+.comments {
+  background-color: #fff;
+  .comment {
+    padding: 2rem;
+  }
+}
+
+.single-post-page {
+  padding: 3rem 0;
+}
+
+.post-body {
+  background-color: #fff;
+  padding: 2rem;
+}
