@@ -2,15 +2,29 @@
   <div class="row">
    <%= render partial: "shared/user_card", locals: {u: @user}%>
 
+    <div class="post-cards-wrapper">   
      <%@posts.each do |p|%>
-      <%= render partial: "shared/post_card", locals: {p:p}%>
-      <%p "😀😀😀😀😀😀😀😀"%>
-      <%p p%>
-      <div class="comments-wrapper">
-      <%= render partial: "shared/comments", locals: {comments: p.five_most_recent_comments}%>
+      <div class="card-wrapper">
+        <%= render partial: "shared/post_card", locals: {p:p}%>
+        <div class="comments-wrapper">
+        <% if !p.five_most_recent_comments.empty?%>
+          <%= render partial: "shared/comments", locals: {comments: p.five_most_recent_comments}%>
+        <%else%>
+           <div class="empty-comments">
+          <p>There are no comments yet</p>
+           </div>
+       <%end%>
+        </div>
       </div>
      <%end%>
+    </div>
    
+  </div>
+
+  <div class="row">
+     <button class="btn">
+        <%= link_to "Create new post", create_user_post_path(p&.id, p) %>
+     </button>
   </div>
 
 </main>
