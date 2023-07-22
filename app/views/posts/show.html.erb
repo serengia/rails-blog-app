@@ -1,6 +1,6 @@
 <div class="single-post-page">
   <div class="row">
-    <%= render partial: "shared/post_body"%>
+    <%= render partial: "shared/post_body",  locals: {post: @post}%>
    <div class="comments-wrapper">
       <%= render partial: "shared/comments", locals: {comments: @comments}%>
       </div>

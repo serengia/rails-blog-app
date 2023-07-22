@@ -4,6 +4,8 @@
 
      <%@posts.each do |p|%>
       <%= render partial: "shared/post_card", locals: {p:p}%>
+      <%p "😀😀😀😀😀😀😀😀"%>
+      <%p p%>
       <div class="comments-wrapper">
       <%= render partial: "shared/comments", locals: {comments: p.five_most_recent_comments}%>
       </div>
