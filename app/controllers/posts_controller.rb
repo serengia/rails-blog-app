@@ -6,8 +6,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def new
-  end
+  def new; end
 
   def show
     @comments = @post.five_most_recent_comments
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
 
   def post_params
     params.require(:post).permit(:title, :text)
