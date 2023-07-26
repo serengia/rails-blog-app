@@ -101,7 +101,6 @@ p {
 .user-bio,
 .post {
   padding: 2rem;
-  margin-bottom: 3rem;
   background-color: #fff;
 }
 
@@ -179,17 +178,34 @@ p {
 .posts-page {
   padding: 3rem 0;
 
+  .post-cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
   .comments-wrapper {
-    margin-bottom: 3rem;
-    margin-top: -4rem;
+    border-top: solid 2px #ddd;
   }
 }
 
 .comments {
   background-color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   .comment {
     padding: 2rem;
+    background-color: #ebebeb;
+    border-radius: 4px;
   }
+}
+
+.empty-comments {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 4px;
 }
 
 .single-post-page {
