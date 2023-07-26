@@ -1,25 +1,16 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
-  before_action :set_user, only: %i[index show new]
-
   def index
-    @posts = Post.all
+    @user = User.find(params[:user_id])
+    @posts = @user.posts
   end
 
-  def new; end
-
   def show
+    @post = Post.find(params[:id])
     @comments = @post.five_most_recent_comments
   end
 
-  private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
-  def set_post
-    @post = Post.find(params[:id])
+  def new
+    @post = @current_user.posts.new
   end
 
   def create
@@ -30,6 +21,8 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :text)
