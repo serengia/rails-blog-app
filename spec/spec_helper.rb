@@ -97,7 +97,6 @@ RSpec.configure do |config|
   #   Kernel.srand config.seed
 end
 
-
 Capybara.register_driver :selenium_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
 
