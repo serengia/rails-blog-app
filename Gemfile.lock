@@ -284,6 +284,7 @@ DEPENDENCIES
   jbuilder
   pg (~> 1.1)
   puma (~> 5.0)
+  rack (= 2.2.7)
   rails (~> 7.0.6)
   rails-controller-testing
   rspec-rails
