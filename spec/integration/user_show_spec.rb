@@ -18,6 +18,7 @@ RSpec.describe 'Users', type: :system, js: true do
   describe 'show page' do
     before(:example) do
       visit user_path(@john)
+      # visit "/users/#{@john[:id]}"
     end
 
     it 'shows the user profile information' do
