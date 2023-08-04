@@ -1,6 +1,7 @@
 <div class="post-body">
   <div>
     <h2><%= post&.title%></h2>
+    <p>By: <%= post&.author&.name%></p>
     <p class="commets-and-likes">
         <span>Comments: <%= post&.comments_counter%></span>
         <span>Likes: <%= post&.likes_counter%></span>

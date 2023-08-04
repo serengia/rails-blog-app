@@ -1,40 +1,44 @@
-# spec/integration/user_index_spec.rb
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :system, js: true do
-  before(:all) do
-    @john = User.create(name: 'John Cena', photo: 'https://picsum.photos/200/300',
-                        bio: 'Welcome to the new era of the WWE. The champ is here!')
-    @cristiano = User.create(name: 'Cristiano Ronaldo', photo: '/assets/default_user.jpg',
-                             bio: 'I am ubleivable inside the pitch.')
-
-    @post1 = Post.create(title: 'I am the champ', text: 'I am the champ of the WWE.', author: @john)
-    @post2 = Post.create(title: 'You can\'t see me', text: 'My time is now. It\'s the frenchise.', author: @john)
-    @post3 = Post.create(title: 'I will never give up', text: 'I will never give up. I will never surrender.',
-                         author: @john)
-    @post4 = Post.create(title: 'No one can beat me', text: 'No one can beat me. I am the best.', author: @john)
-    @post5 = Post.create(title: 'Like it or not', text: 'Like it or not, I am the best.', author: @john)
+RSpec.describe 'User Index Page', type: :system do
+  before(:each) do
+    @user = User.create(name: 'Basir',
+                        photo: 'https://media.istockphoto.com/id/1406197730/photo/portrait-of-a-young-handsome-indian-man.webp?b=1&s=170667a&w=0&k=20&c=KtmKHyOE6MJV0w2DiGX8P4399KHNbZ3p8lCjTEabGcY=',
+                        bio: 'Best friends', posts_counter: 0)
+    @user.posts.create(title: 'Post 1', text: 'This is the first post.', comments_counter: 0, likes_counter: 0)
+    @user.posts.create(title: 'Post 2', text: 'This is the second post.', comments_counter: 0, likes_counter: 0)
+    @user.posts.create(title: 'Post 3', text: 'This is the third post.', comments_counter: 0, likes_counter: 0)
   end
 
-  describe 'index page' do
-    before(:example) do
-      visit users_path
+  describe 'User index page' do
+    before(:each) { visit users_path }
+
+    it 'displays a container for the users' do
+      expect(page).to have_css('div.content')
     end
 
-    it 'should render user information' do
-      expect(page).to have_content(@cristiano.name)
-      expect(page).to have_content(@john.name)
-
-      expect(page).to have_css("img[src*='https://picsum.photos/200/300']")
-      expect(page).to have_css("img[src*='default_user.jpg']")
-
-      expect(page).to have_content(@cristiano.posts_counter)
-      expect(page).to have_content(@john.posts_counter)
+    it 'displays the username of each user' do
+      User.all.each do |_user|
+        expect(page).to have_content('Basir')
+      end
     end
 
-    it 'should redirect to the user page when a username is clicked' do
-      find('.user_card', text: @john.name).click
-      expect(page).to have_current_path(user_path(@john))
+    it 'displays the photos of each user' do
+      User.all.each do |_user|
+        expect(page.has_xpath?("//img[@src='https://media.istockphoto.com/id/1406197730/photo/portrait-of-a-young-handsome-indian-man.webp?b=1&s=170667a&w=0&k=20&c=KtmKHyOE6MJV0w2DiGX8P4399KHNbZ3p8lCjTEabGcY=']"))
+      end
+    end
+
+    it 'shows the number of posts of each user' do
+      User.all.each do |_user|
+        expect(page).to have_content('No of Posts: 3')
+      end
+    end
+
+    it "is redirected to that user's show page" do
+      click_link('Basir')
+      visit user_path(@user)
+      expect(page).to have_current_path(user_path(@user))
     end
   end
 end
