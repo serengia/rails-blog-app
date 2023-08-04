@@ -1,17 +1,12 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
-
+  before_action :authenticate_user!
   def index
-    @users = User.all
+    # Eager loading posts for all users
+    @users = User.all.includes(:posts)
   end
 
   def show
-    @posts = @user.three_most_recent_posts
-  end
-
-  private
-
-  def set_user
-    @user = User.find(params[:id])
+    # Eager loading posts, comments, and authors for the specific user
+    @user = User.includes(posts: [{ comments: :author }]).find(params[:id])
   end
 end

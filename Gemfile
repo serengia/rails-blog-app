@@ -6,6 +6,7 @@ ruby '3.2.2'
 # Add linting
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.6'
 
@@ -82,3 +83,5 @@ group :test do
   # Use database cleaner to reset the database between tests
   # gem 'database_cleaner'
 end
+
+gem 'devise', '~> 4.9'

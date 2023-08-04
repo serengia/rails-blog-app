@@ -4,7 +4,8 @@
   <ul class="nav-links">
 <li class="nav-link"><%= link_to "Home", root_path%> </li>
 <li class="nav-link"><%= link_to "users", users_path%> </li>
-<li class="nav-link"><%= link_to "login", login_path%> </li>
+<li class="nav-link"><%= link_to "login", user_session_path, method: "post"%> </li>
+<li><%= button_to "logout", destroy_user_session_path, method: :delete  %></li>
 </ul>
 </div>
 </header>
