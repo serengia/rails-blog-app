@@ -5,4 +5,10 @@
      <span>Comments: <%= p.comments_counter%> </span>
      <span>Likes: <%= p.likes_counter%> </span>
      </p>
+     <div>
+     
+     <% if can? :destroy, p %>
+         <%= button_to "Delete", user_post_path(p.author, p), method: :delete %>
+     <% end %>
+   </div>
    </div>

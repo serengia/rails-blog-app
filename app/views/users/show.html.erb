@@ -9,7 +9,7 @@
     <p><%= @user.bio%></p>
   </div>
    
-   <%@posts.each do |p|%>
+   <%@posts&.each do |p|%>
       <%= render partial: "shared/post_card", locals: {p:p}%>
    <%end%>
 

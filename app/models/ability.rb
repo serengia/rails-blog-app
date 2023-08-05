@@ -28,5 +28,17 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+ 
+    return unless user.present?
+
+    can :read, :all
+    can :create, [Comment, Post]
+    if user.role == 'admin'
+      can :manage, :all
+    else
+      can :destroy, Comment, author: user
+      can :destroy, Post, author: user
+    end
   end
+   
 end

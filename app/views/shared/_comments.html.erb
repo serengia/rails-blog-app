@@ -2,6 +2,9 @@
    <% comments.each do |c|%>
     <div class="comment">
     <p><%= c.text %></p>
+    <% if can? :destroy, c %>
+         <%= button_to "Delete", user_comment_path(p.author, c), method: :delete %>
+     <% end %>
     </div>
     <%end%>
 </div>
